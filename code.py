@@ -5,19 +5,16 @@ query_1 = """
 select articles.title, count(*) as counts
 from log join articles
 on substr(log.path, 10) = articles.slug
-where log.status='200 OK'
 group by title
 order by counts desc
 limit 3;
 """
 
 query_2 = """
-select authors.name, count(*) as counts
-from articles, log, authors
-where log.status='200 OK'
-and articles.slug = substr(log.path, 10)
-and articles.author =authors.id
-group by authors.name
+select name, count(*) as counts
+from article_author, log
+where slug = substr(log.path, 10)
+group by name
 order by counts desc
 """
 

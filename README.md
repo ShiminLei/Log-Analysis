@@ -30,6 +30,13 @@ newsdata.sql from the [link](https://d17h27t6h515a5.cloudfront.net/topher/2016/A
 # <span id="view">Views created</span>
 
 ```sql
+create view article_author as
+select authors.name, articles.title, articles.slug
+from articles, authors
+where articles.author = authors.id;
+```
+
+```sql
 create view date_status as
 select date(time), status 
 from log 
