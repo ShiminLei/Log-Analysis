@@ -1,14 +1,25 @@
 #!/usr/bin/env python
 import psycopg2
 
+# query_1 = """
+# select articles.title, count(*) as counts
+# from log join articles
+# on substr(log.path, 10) = articles.slug
+# group by title
+# order by counts desc
+# limit 3;
+# """
+
+# 以下方法更好，因为Consider news website distinct sections: article, sporttv, artists...
 query_1 = """
 select articles.title, count(*) as counts
 from log join articles
-on substr(log.path, 10) = articles.slug
+on log.path = CONCAT('/article/', articles.slug)
 group by title
 order by counts desc
 limit 3;
 """
+
 
 query_2 = """
 select name, count(*) as counts
