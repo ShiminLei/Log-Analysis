@@ -30,7 +30,7 @@ order by counts desc
 """
 
 query_3 = """
-select date, perc from fail_total
+select TO_CHAR(date, 'Mon DD, YYYY'), round(perc,2) from fail_total
 where perc>0.01;
 """
 
