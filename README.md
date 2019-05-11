@@ -1,6 +1,6 @@
 # Description
 
-Python script uses psycopg2 to query a PostgreSQL database for a fictional news website, and print out the result for given questions.
+Python script uses psycopg2 to query a PostgreSQL database for a news website, and print out the result for given questions.
 
 # Requirements
 
